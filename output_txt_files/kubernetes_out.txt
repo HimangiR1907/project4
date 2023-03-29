@@ -1,1 +1,119 @@
 <paste log output from Kubernetes-mediated prediction, here>
+
+(.devops) voclabs:~/environment/project4 (main) $ ./run_kubernetes.sh 
+pod/project4 created
+pod/project4 condition met
+NAME       READY   STATUS    RESTARTS   AGE
+project4   1/1     Running   0          29s
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+Handling connection for 8080
+Handling connection for 8080
+Handling connection for 8080
+^C(.devops) voclabs:~/environment/project4 (main) $ ./run_kubernetes.sh 
+Error from server (AlreadyExists): pods "project4" already exists
+pod/project4 condition met
+NAME       READY   STATUS    RESTARTS   AGE
+project4   1/1     Running   0          4m21s
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+Handling connection for 8080
+Handling connection for 8080
+Handling connection for 8080
+
+
+(.devops) voclabs:~/environment/project4 (main) $ ./make_prediction.sh 
+Port: 8080
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+(.devops) voclabs:~/environment/project4 (main) $ ./make_prediction.sh 
+Port: 8080
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+(.devops) voclabs:~/environment/project4 (main) $ ./make_prediction.sh 
+Port: 8080
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+(.devops) voclabs:~/environment/project4 (main) $ kubectl get pods
+NAME       READY   STATUS    RESTARTS   AGE
+project4   1/1     Running   0          5m21s
+(.devops) voclabs:~/environment/project4 (main) $ kubectl logs project4
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 307-307-748
+[2023-03-29 14:18:25,844] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-03-29 14:18:25,862] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:18:25,887] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:18:25,892] INFO in app: The output prediction is: [20.35373177134412]
+127.0.0.1 - - [29/Mar/2023 14:18:25] "POST /predict HTTP/1.1" 200 -
+[2023-03-29 14:18:48,385] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-03-29 14:18:48,397] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:18:48,405] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:18:48,409] INFO in app: The output prediction is: [20.35373177134412]
+127.0.0.1 - - [29/Mar/2023 14:18:48] "POST /predict HTTP/1.1" 200 -
+[2023-03-29 14:18:54,915] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-03-29 14:18:54,937] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:18:54,948] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:18:54,951] INFO in app: The output prediction is: [20.35373177134412]
+127.0.0.1 - - [29/Mar/2023 14:18:54] "POST /predict HTTP/1.1" 200 -
+[2023-03-29 14:20:17,532] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-03-29 14:20:17,545] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:20:17,558] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:20:17,562] INFO in app: The output prediction is: [20.35373177134412]
+127.0.0.1 - - [29/Mar/2023 14:20:17] "POST /predict HTTP/1.1" 200 -
+[2023-03-29 14:20:20,145] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-03-29 14:20:20,158] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:20:20,168] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:20:20,173] INFO in app: The output prediction is: [20.35373177134412]
+127.0.0.1 - - [29/Mar/2023 14:20:20] "POST /predict HTTP/1.1" 200 -
+[2023-03-29 14:20:22,995] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-03-29 14:20:23,010] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:20:23,020] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-03-29 14:20:23,024] INFO in app: The output prediction is: [20.35373177134412]
+127.0.0.1 - - [29/Mar/2023 14:20:23] "POST /predict HTTP/1.1" 200 -
+(.devops) voclabs:~/environment/project4 (main) $ 
