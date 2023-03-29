@@ -48,3 +48,40 @@ source .devops/bin/activate
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+Used steps:
+
+**handolint install** :
+sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 
+sudo chmod +x /bin/hadolint /bin/hadolint Dockerfile
+
+**minikube install** : https://minikube.sigs.k8s.io/docs/start/
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+
+**kubectl install** :
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+
+Additinal links:
+https://minikube.sigs.k8s.io/docs/start/
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+
+Project files:
+Makefile :  Build file of the project.
+requirements.txt : Dependency requirements.
+un_docker.sh : Shell script for creating and running docker container.
+run_kubernetes.sh: Shell script to deploy docker container on Kubernetes cluster.
+upload_docker.sh : Shell script for uploading locally built docker image to dockerhub repository. 
+link: https://hub.docker.com/
+Dockerfile :  Dockerfile contains the application and the required dependencies. 
+app.py  : REST Endpoint for prediction of housing prices in Boston.
+output_txt_files : Docker ,Kubernetes output which stated the prediction i the logs itself.
+model_data: model data for housing prices in Boston.
+make_prediction.sh Calls prediction REST endpoint and simulates sample prediction after running the container (docker app) we are able to run the prediction using the make_prediction.sh script
+.circleci/config.xml - CircleCI configuration file
+
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/HimangiR1907/project4/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/HimangiR1907/project4/tree/main)
+
