@@ -69,19 +69,32 @@ https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 
 Project files:
+
 Makefile :  Build file of the project.
+
 requirements.txt : Dependency requirements.
+
 un_docker.sh : Shell script for creating and running docker container.
+
 run_kubernetes.sh: Shell script to deploy docker container on Kubernetes cluster.
+
 upload_docker.sh : Shell script for uploading locally built docker image to dockerhub repository. 
 link: https://hub.docker.com/
+
 Dockerfile :  Dockerfile contains the application and the required dependencies. 
+
 app.py  : REST Endpoint for prediction of housing prices in Boston.
+
 output_txt_files : Docker ,Kubernetes output which stated the prediction i the logs itself.
+
 model_data: model data for housing prices in Boston.
+
 make_prediction.sh Calls prediction REST endpoint and simulates sample prediction after running the container (docker app) we are able to run the prediction using the make_prediction.sh script
+
 .circleci/config.xml - CircleCI configuration file
 
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/HimangiR1907/project4/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/HimangiR1907/project4/tree/main)
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/HimangiR1907/project4/tree/main.svg?stylestyle=shield)](https://dl.circleci.com/status-badge/redirect/gh/HimangiR1907/project4/tree/main)
 
