@@ -1,51 +1,5 @@
-<paste log output from Kubernetes-mediated prediction, here>
+the below outpt contains the outut of prediction value: "The output prediction is: [20.35373177134412]"                    
 
-(.devops) voclabs:~/environment/project4 (main) $ ./run_kubernetes.sh 
-pod/project4 created
-pod/project4 condition met
-NAME       READY   STATUS    RESTARTS   AGE
-project4   1/1     Running   0          29s
-Forwarding from 127.0.0.1:8080 -> 80
-Forwarding from [::1]:8080 -> 80
-Handling connection for 8080
-Handling connection for 8080
-Handling connection for 8080
-^C(.devops) voclabs:~/environment/project4 (main) $ ./run_kubernetes.sh 
-Error from server (AlreadyExists): pods "project4" already exists
-pod/project4 condition met
-NAME       READY   STATUS    RESTARTS   AGE
-project4   1/1     Running   0          4m21s
-Forwarding from 127.0.0.1:8080 -> 80
-Forwarding from [::1]:8080 -> 80
-Handling connection for 8080
-Handling connection for 8080
-Handling connection for 8080
-
-
-(.devops) voclabs:~/environment/project4 (main) $ ./make_prediction.sh 
-Port: 8080
-{
-  "prediction": [
-    20.35373177134412
-  ]
-}
-(.devops) voclabs:~/environment/project4 (main) $ ./make_prediction.sh 
-Port: 8080
-{
-  "prediction": [
-    20.35373177134412
-  ]
-}
-(.devops) voclabs:~/environment/project4 (main) $ ./make_prediction.sh 
-Port: 8080
-{
-  "prediction": [
-    20.35373177134412
-  ]
-}
-(.devops) voclabs:~/environment/project4 (main) $ kubectl get pods
-NAME       READY   STATUS    RESTARTS   AGE
-project4   1/1     Running   0          5m21s
 (.devops) voclabs:~/environment/project4 (main) $ kubectl logs project4
  * Serving Flask app "app" (lazy loading)
  * Environment: production
@@ -117,3 +71,52 @@ project4   1/1     Running   0          5m21s
 [2023-03-29 14:20:23,024] INFO in app: The output prediction is: [20.35373177134412]
 127.0.0.1 - - [29/Mar/2023 14:20:23] "POST /predict HTTP/1.1" 200 -
 (.devops) voclabs:~/environment/project4 (main) $ 
+
+
+(.devops) voclabs:~/environment/project4 (main) $ ./run_kubernetes.sh 
+pod/project4 created
+pod/project4 condition met
+NAME       READY   STATUS    RESTARTS   AGE
+project4   1/1     Running   0          29s
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+Handling connection for 8080
+Handling connection for 8080
+Handling connection for 8080
+^C(.devops) voclabs:~/environment/project4 (main) $ ./run_kubernetes.sh 
+Error from server (AlreadyExists): pods "project4" already exists
+pod/project4 condition met
+NAME       READY   STATUS    RESTARTS   AGE
+project4   1/1     Running   0          4m21s
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+Handling connection for 8080
+Handling connection for 8080
+Handling connection for 8080
+
+
+(.devops) voclabs:~/environment/project4 (main) $ ./make_prediction.sh 
+Port: 8080
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+(.devops) voclabs:~/environment/project4 (main) $ ./make_prediction.sh 
+Port: 8080
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+(.devops) voclabs:~/environment/project4 (main) $ ./make_prediction.sh 
+Port: 8080
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+(.devops) voclabs:~/environment/project4 (main) $ kubectl get pods
+NAME       READY   STATUS    RESTARTS   AGE
+project4   1/1     Running   0          5m21s
+
